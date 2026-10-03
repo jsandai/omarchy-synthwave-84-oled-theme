@@ -1,0 +1,25 @@
+name: Synthwave '84 OLED
+accent: "#ff7edb"
+cursor: "#03edf9"
+background: "#000000"
+foreground: "#ffffff"
+details: darker
+terminal_colors:
+  normal:
+    black: "#000000"
+    red: "#fe4450"
+    green: "#72f1b8"
+    yellow: "#fede5d"
+    blue: "#03edf9"
+    magenta: "#ff7edb"
+    cyan: "#36f9f6"
+    white: "#ffffff"
+  bright:
+    black: "#495495"
+    red: "#fe4450"
+    green: "#72f1b8"
+    yellow: "#fede5d"
+    blue: "#03edf9"
+    magenta: "#ff7edb"
+    cyan: "#03edf9"
+    white: "#ffffff"

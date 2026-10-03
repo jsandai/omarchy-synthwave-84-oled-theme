@@ -1,0 +1,35 @@
+mode = "dark"
+
+# Accent: neon pink (variable/magenta from synthwave '84)
+accent = "#ff7edb"
+selection = "#34294f"
+muted = "#495495"
+
+# OLED black base; nebula purple reserved for elevated surfaces
+background = "#000000"
+dark_background = "#171520"
+darker_background = "#0d0b14"
+lighter_background = "#241b2f"
+
+foreground = "#ffffff"
+dark_foreground = "#848bbd"
+light_foreground = "#b6b1b1"
+bright_foreground = "#ffffff"
+
+# Synthwave '84 ANSI palette
+red = "#fe4450"
+yellow = "#fede5d"
+orange = "#f97e72"
+green = "#72f1b8"
+cyan = "#36f9f6"
+blue = "#03edf9"
+magenta = "#ff7edb"
+brown = "#f97e72"
+
+bright_red = "#fe4450"
+bright_yellow = "#fede5d"
+bright_orange = "#ff8b39"
+bright_green = "#72f1b8"
+bright_cyan = "#03edf9"
+bright_blue = "#03edf9"
+bright_magenta = "#ff7edb"
