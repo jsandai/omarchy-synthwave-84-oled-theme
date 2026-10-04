@@ -18,11 +18,11 @@ exists, so pi follows the desktop with no extra setup.
 It carries two colour keys that stock pi ignores and extensions read:
 
 - `toolPanelBorder` — tool panel outline colour for
-  [pi-tool-display](https://github.com/jsandai/pi-tool-display) (`toolPanelBorderColor` or `diffPanelBorderColor`).
-- `spinner` — the working-spinner colour, for pi-tool-display's
+  [pi-tool-frame](https://github.com/jsandai/pi-tool-frame) (`toolPanelBorderColor` or `diffPanelBorderColor`).
+- `spinner` — the working-spinner colour, for pi-tool-frame's
   `workingIndicatorColor`. Without it pi uses `accent` for the spinner.
 
-The matching pi-tool-display `config.json`:
+The matching pi-tool-frame config (`~/.pi/agent/extensions/pi-tool-display/config.json`):
 
 ```json
 {
