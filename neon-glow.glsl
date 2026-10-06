@@ -6,9 +6,9 @@
 // gets back roughly its own colour instead of a gain. Screen blending keeps
 // every channel below 1.0, which avoids the pink clipping on bright cyan.
 
-const float STRENGTH = 0.55;  // halo intensity
-const float RADIUS   = 2.0;   // inner ring radius in pixels; outer ring is 2x
-const float WHITE    = 0.35;  // emission of unsaturated text relative to neon
+const float STRENGTH = 0.75;  // halo intensity
+const float RADIUS   = 0.75;   // inner ring radius in pixels; outer ring is 2x
+const float WHITE    = 0.00;  // emission of unsaturated text relative to neon
 
 vec3 emission(vec3 c) {
     float mx = max(c.r, max(c.g, c.b));
