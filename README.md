@@ -1,7 +1,8 @@
 # Synthwave '84 OLED
 
 An Omarchy theme: Synthwave '84 colours on an OLED-black base, with neon-sunrise and
-synthwave-grid backgrounds and a neon-bloom Hyprland shader.
+synthwave-grid backgrounds and neon window glow from coloured Hyprland shadows and
+gradient borders.
 
 ## Install
 

@@ -4,10 +4,6 @@
 local active_border_color = { colors = { "rgba(ff7edbee)", "rgba(03edf9ee)" }, angle = 45 }
 local inactive_border_color = "rgba(495495aa)"
 
--- Points at the theme source rather than the applied copy so edits to the
--- shader take effect on `hyprctl reload` without re-applying the theme.
-local bloom_shader = os.getenv("HOME") .. "/.config/omarchy/themes/synthwave-84-oled/neon-bloom.glsl"
-
 hl.config({
   general = {
     col = {
@@ -23,8 +19,9 @@ hl.config({
     },
   },
 
+  -- Glow lives in per-window shadows on purpose: a screen_shader runs over
+  -- the whole output and posterized video and photos.
   decoration = {
-    screen_shader = bloom_shader,
     shadow = {
       enabled = true,
       range = 16,
