@@ -23,6 +23,7 @@ glow.sprite.SetOpacity(0);
 
 global.fade_start = -1;         # frame the shutdown/reboot fade-out began
 GLOW = "@GLOW@";                # pulse | static | off, set by build.sh
+GLOW_REST = @GLOW_REST@;          # seconds of no glow between pulses, set by build.sh
 
 fun glow_opacity() {
   if (GLOW == "off") {
@@ -30,9 +31,10 @@ fun glow_opacity() {
   }
   a = 0.725;
   if (GLOW == "pulse") {
-    # cosine pulse 0.45 -> 1.0 -> 0.45 over 3 s
-    phase = (global.frame % (3 * FPS)) / (3 * FPS);
-    a = 0.725 - 0.275 * Math.Cos(phase * 2 * Math.Pi);
+    # cosine pulse 0 -> 1 -> 0 over 3 s, then dark for GLOW_REST seconds
+    t = global.frame % Math.Int((3 + GLOW_REST) * FPS);
+    a = 0;
+    if (t < 3 * FPS) a = 0.5 - 0.5 * Math.Cos(t / (3 * FPS) * 2 * Math.Pi);
   }
   if (global.mode == "shutdown" || global.mode == "reboot") {
     if (global.fade_start < 0) global.fade_start = global.frame;
