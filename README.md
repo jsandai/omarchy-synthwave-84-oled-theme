@@ -1,8 +1,8 @@
 # Synthwave '84 OLED
 
 An Omarchy theme: Synthwave '84 colours on an OLED-black base, with a neon-sunrise
-background, neon window glow from coloured Hyprland shadows and gradient borders, a neon
-text glow in Ghostty, and an optional animated boot and unlock splash.
+background, pink-to-cyan window borders, an optional neon glow for windows and Ghostty,
+and an optional animated boot and unlock splash.
 
 ![Animated splash: the logo's pink glow pulses](screenshots/splash-glow-pulse.gif)
 
@@ -12,20 +12,28 @@ text glow in Ghostty, and an optional animated boot and unlock splash.
 omarchy theme install https://github.com/jsandai/omarchy-synthwave-84-oled-theme.git
 ```
 
-## Terminal glow
+## Neon glow
 
-Ghostty gets a neon text glow from `neon-glow.glsl`: coloured text spreads a soft halo,
-while black and white stay crisp. It only runs on the terminal, so video and photos
-elsewhere are untouched.
+The glow is a separate step: a magenta halo around windows (coloured Hyprland shadows)
+and a neon text glow in Ghostty (`neon-glow.glsl`), where coloured text spreads a soft
+halo while black and white stay crisp. The text glow only runs on the terminal, so video
+and photos elsewhere are untouched.
 
-To turn it off, create `~/.config/ghostty/synthwave-84-oled.conf` containing:
+Omarchy won't load Lua or terminal configs from a theme installed from a git repo, so
+the installer adds them to your own Hyprland and Ghostty config instead:
 
+```bash
+cd ~/.config/omarchy/themes/synthwave-84-oled/glow
+./install.sh               # turn the glow on
+./install.sh --uninstall   # turn it off again
 ```
-custom-shader =
-```
 
-Ghostty reads that file after the theme, so it wins, and theme updates leave it alone.
-Delete the file to get the glow back.
+It writes `~/.config/hypr/synthwave-84-oled-glow.lua` and appends a marked line to
+`~/.config/hypr/hyprland.lua` and to your Ghostty config. Both only apply while this
+theme is current, so switching themes turns the glow off without uninstalling. Re-run
+`./install.sh` after a theme update to pick up changes to the window glow.
+
+The pink-to-cyan window border needs none of this; it comes with the theme.
 
 ## Boot and unlock splash
 

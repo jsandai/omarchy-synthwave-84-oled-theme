@@ -5,6 +5,10 @@ accent = "#ff7edb"
 selection = "#34294f"
 muted = "#495495"
 
+# Window borders: pink-to-cyan gradient on the active window
+hyprland_active_border = "rgba(ff7edbee) rgba(03edf9ee) 45deg"
+hyprland_inactive_border = "rgba(495495aa)"
+
 # OLED black base; nebula purple reserved for elevated surfaces
 background = "#000000"
 dark_background = "#171520"
