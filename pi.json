@@ -33,9 +33,7 @@
     "borderMuted": "#495495",
     "mutedText": "#b893ce",
     "dimText": "#9d8fdc",
-    "neonGreen": "#3dff5c",
-    "neonOrange": "#ff8a3d",
-    "spinner": "#03edf9"
+    "neonGreen": "#3dff5c"
   },
   "colors": {
     "accent": "accent",
