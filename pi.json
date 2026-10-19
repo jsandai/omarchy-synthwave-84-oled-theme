@@ -73,7 +73,6 @@
     "toolDiffAdded": "neonGreen",
     "toolDiffRemoved": "color1",
     "toolDiffContext": "mutedText",
-    "toolPanelBorder": "neonOrange",
     "syntaxComment": "dimText",
     "syntaxKeyword": "color5",
     "syntaxFunction": "color4",
@@ -89,8 +88,7 @@
     "thinkingMedium": "color5",
     "thinkingHigh": "color3",
     "thinkingXhigh": "color1",
-    "bashMode": "color3",
-    "spinner": "spinner"
+    "bashMode": "color3"
   },
   "export": {
     "pageBg": "#000000",
