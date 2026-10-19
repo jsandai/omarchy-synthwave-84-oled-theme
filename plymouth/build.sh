@@ -4,14 +4,11 @@
 #
 # Usage: build.sh <outdir>
 #   GLOW=pulse|static|off   logo glow (default pulse)
-#   GLOW_REST=<seconds>     dark pause between pulses (default 0.5)
 # Assets are in LOGICAL pixels: Plymouth's script plugin upscales them by its device scale.
 set -euo pipefail
 here=$(cd "$(dirname "$0")" && pwd)
 out=${1:?usage: build.sh <outdir>}; mkdir -p "$out"
 GLOW=${GLOW:-pulse}
-GLOW_REST=${GLOW_REST:-0.5}
-[[ $GLOW_REST =~ ^[0-9]+(\.[0-9]+)?$ ]] || { echo "GLOW_REST must be a number of seconds (got '$GLOW_REST')" >&2; exit 2; }
 case $GLOW in pulse|static|off) ;; *) echo "GLOW must be pulse, static or off (got '$GLOW')" >&2; exit 2 ;; esac
 LOCK_SRC=${LOCK_SRC:-${OMARCHY_PATH:-/usr/share/omarchy}/default/plymouth/lock.png}
 for dep in magick rsvg-convert; do
@@ -76,7 +73,7 @@ png -size $((PW+2*PP))x$((PH+2*PP)) xc:none "$t/fill.png" -geometry +$PP+$PP -co
   -blur 0x5 "$out/progress_glow.png"
 
 # --- theme files
-sed -e "s/@GLOW@/$GLOW/" -e "s/@GLOW_REST@/$GLOW_REST/" "$here/synthwave-oled.script" > "$out/synthwave-oled.script"
+sed "s/@GLOW@/$GLOW/" "$here/synthwave-oled.script" > "$out/synthwave-oled.script"
 cat > "$out/synthwave-oled.plymouth" <<'EOF'
 [Plymouth Theme]
 Name=Synthwave OLED
@@ -90,4 +87,4 @@ ConsoleLogBackgroundColor=0x000000
 MonospaceFont=Cantarell 11
 Font=Cantarell 11
 EOF
-echo "built $(ls "$out" | wc -l) files in $out (glow: $GLOW, rest ${GLOW_REST}s)"
+echo "built $(ls "$out" | wc -l) files in $out (glow: $GLOW)"

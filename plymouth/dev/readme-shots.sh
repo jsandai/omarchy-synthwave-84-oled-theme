@@ -19,7 +19,7 @@ start boot
 # pulse GIF frames: ~3 s cycle
 for i in $(seq -w 0 39); do shot gif-$i; sleep 0.04; done
 ( sudo plymouth ask-for-password --prompt=pw --number-of-tries=2 --command="grep -qx hunter22" ) &
-sleep 0.8
+sleep ${PRE:-0.8}
 xdotool type --delay 90 "hunter2"; sleep 0.35; shot unlock
 xdotool key Return; sleep 0.12; shot wrong-a; sleep 0.08; shot wrong-b
 sleep 1.2
