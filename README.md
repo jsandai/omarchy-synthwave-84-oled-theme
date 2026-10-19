@@ -55,9 +55,8 @@ It needs sudo and rebuilds your initramfs, so it is a separate step:
 
 ```bash
 cd ~/.config/omarchy/themes/synthwave-84-oled/plymouth
-./install.sh                # pulsing glow
-GLOW=static ./install.sh    # steady glow; GLOW=off for none. Re-run to change it.
-./install.sh --uninstall    # back to Omarchy's splash
+./install.sh               # install and make it the default splash
+./install.sh --uninstall   # back to Omarchy's splash
 ```
 
 It installs to `/usr/share/plymouth/themes/synthwave-oled`, which no package owns, so

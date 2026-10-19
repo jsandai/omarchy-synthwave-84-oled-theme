@@ -2,8 +2,7 @@
 # Install the animated synthwave-oled splash (boot, LUKS unlock, shutdown) and make it the
 # default Plymouth theme. Run as your user; it asks for sudo.
 #
-#   ./install.sh                 install with the pulsing logo glow
-#   GLOW=static ./install.sh     steady glow (or GLOW=off for none); re-run to change it
+#   ./install.sh                 install it and make it the default splash
 #   ./install.sh --uninstall     go back to Omarchy's own splash and remove the theme
 #
 # The theme lives in its own directory that no package owns, so updates leave it alone.
@@ -44,4 +43,4 @@ sudo install -d -m755 "$dest"
 sudo install -m644 "$t/$name"/* "$dest/"
 sudo plymouth-set-default-theme "$name"
 rebuild_initramfs
-echo "Installed $name (glow: ${GLOW:-pulse}). It shows from the next boot."
+echo "Installed $name. It shows from the next boot."

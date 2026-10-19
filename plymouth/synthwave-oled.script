@@ -22,19 +22,12 @@ glow.sprite.SetPosition(logo.x - 60, logo.y - 60, 1);
 glow.sprite.SetOpacity(0);
 
 global.fade_start = -1;         # frame the shutdown/reboot fade-out began
-GLOW = "@GLOW@";                # pulse | static | off, set by build.sh
 
 fun glow_opacity() {
-  if (GLOW == "off") {
-    return 0;
-  }
-  a = 0.725;
-  if (GLOW == "pulse") {
-    # cosine pulse 0 -> 1 -> 0 over 3 s, then dark for 0.7 s
-    t = global.frame % Math.Int(3.7 * FPS);
-    a = 0;
-    if (t < 3 * FPS) a = 0.5 - 0.5 * Math.Cos(t / (3 * FPS) * 2 * Math.Pi);
-  }
+  # cosine pulse 0 -> 1 -> 0 over 3 s, then dark for 0.7 s
+  t = global.frame % Math.Int(3.7 * FPS);
+  a = 0;
+  if (t < 3 * FPS) a = 0.5 - 0.5 * Math.Cos(t / (3 * FPS) * 2 * Math.Pi);
   if (global.mode == "shutdown" || global.mode == "reboot") {
     if (global.fade_start < 0) global.fade_start = global.frame;
     k = 1 - (global.frame - global.fade_start) / (1.5 * FPS);

@@ -6,7 +6,7 @@ here=$(cd "$(dirname "$0")" && pwd)
 root=$(dirname "$here")
 lock_src=${LOCK_SRC:-${OMARCHY_PATH:-/usr/share/omarchy}/default/plymouth/lock.png}
 t=$(mktemp -d); trap 'rm -rf "$t"' EXIT
-GLOW=off "$here/build.sh" "$t/out" >/dev/null
+"$here/build.sh" "$t/out" >/dev/null
 
 # unlock.png: the gradient logo, as Omarchy's theme layout expects
 cp "$t/out/logo.png" "$root/unlock.png"
