@@ -187,7 +187,6 @@ place_dialog(0);
 # Shown after unlock (boot/resume), in the entry box's position. Fake progress eases to 70%
 # over 15 s because real progress is frozen during decryption, as in the stock theme.
 
-PP = 15;
 progress_box.image = Image("progress_box.png");
 progress_box.sprite = Sprite(progress_box.image);
 progress_box.x = Window.GetWidth() / 2 - progress_box.image.GetWidth() / 2;
@@ -197,9 +196,6 @@ progress_box.sprite.SetPosition(progress_box.x, progress_box.y, 3);
 progress_bar.original_image = Image("progress_bar.png");
 progress_bar.sprite = Sprite();
 progress_bar.sprite.SetPosition(progress_box.x, progress_box.y, 5);
-progress_glow.original_image = Image("progress_glow.png");
-progress_glow.sprite = Sprite();
-progress_glow.sprite.SetPosition(progress_box.x - PP, progress_box.y - PP, 4);
 
 global.fake_progress_limit = 0.7;
 global.fake_progress_duration = 15.0;
@@ -215,20 +211,17 @@ fun update_progress_bar(progress) {
     w = Math.Int(progress_bar.original_image.GetWidth() * progress);
     if (w < 1) w = 1;
     progress_bar.sprite.SetImage(progress_bar.original_image.Scale(w, progress_bar.original_image.GetHeight()));
-    progress_glow.sprite.SetImage(progress_glow.original_image.Scale(w + 2 * PP, progress_glow.original_image.GetHeight()));
   }
 }
 
 fun show_progress_bar() {
   progress_box.sprite.SetOpacity(1);
   progress_bar.sprite.SetOpacity(1);
-  progress_glow.sprite.SetOpacity(1);
 }
 
 fun hide_progress_bar() {
   progress_box.sprite.SetOpacity(0);
   progress_bar.sprite.SetOpacity(0);
-  progress_glow.sprite.SetOpacity(0);
 }
 
 fun start_fake_progress() {

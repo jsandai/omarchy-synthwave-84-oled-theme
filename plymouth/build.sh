@@ -61,13 +61,11 @@ png -size 8x8 xc:"$CYAN" "$out/bullet.png"
 png -size 8x8 xc:'#ffffff' "$out/bullet-flash.png"
 png -size 6x20 xc:"$CYAN" "$out/caret.png"
 
-# --- progress: 300x4 track; pink->cyan fill and its glow (both scaled by the script)
-PW=300 PH=4 PP=15
+# --- progress: 300x4 track; pink->cyan fill (scaled by the script), no glow
+PW=300 PH=4
 png -size ${PW}x${PH} xc:"$TRACK" "$out/progress_box.png"
 magick -size ${PH}x${PW} gradient:"$PINK"-"$CYAN" -rotate -90 "$t/fill.png"
 png "$t/fill.png" "$out/progress_bar.png"
-png -size $((PW+2*PP))x$((PH+2*PP)) xc:none "$t/fill.png" -geometry +$PP+$PP -composite +geometry \
-  -blur 0x5 "$out/progress_glow.png"
 
 # --- theme files
 cp "$here/synthwave-oled.script" "$out/"
