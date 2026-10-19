@@ -4,6 +4,8 @@ An Omarchy theme: Synthwave '84 colours on an OLED-black base, with a neon-sunri
 background, neon window glow from coloured Hyprland shadows and gradient borders, a neon
 text glow in Ghostty, and an optional animated boot and unlock splash.
 
+![Animated splash: the logo's pink glow pulses](screenshots/splash-glow-pulse.gif)
+
 ## Install
 
 ```bash
@@ -39,6 +41,15 @@ unlock prompt, shutdown and reboot:
 - a cyan password box with square bullets that flash white as you type, a block caret,
   and a red flash and shake on a wrong passphrase
 - a pink-to-cyan progress bar after unlock, and the glow fading out on shutdown
+
+| Unlock prompt | Wrong passphrase |
+| --- | --- |
+| ![Unlock prompt with typed bullets and caret](screenshots/splash-unlock.png) | ![Box flashes red and shakes on a wrong passphrase](screenshots/splash-wrong-passphrase.png) |
+| **Booting** | **Shutdown** |
+| ![Progress bar after unlock](screenshots/splash-boot.png) | ![Shutdown: logo with the glow fading out](screenshots/splash-shutdown.png) |
+
+Captured from a real `plymouthd` (x11 renderer). On HiDPI panels it scales up with the
+display.
 
 It needs sudo and rebuilds your initramfs, so it is a separate step:
 
