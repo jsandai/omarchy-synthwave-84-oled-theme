@@ -31,11 +31,13 @@ magick -size ${LW}x$((LH/2)) gradient:"$YEL"-"$ORA" -size ${LW}x$((LH-LH/2)) gra
   -append "$t/grad.png"
 png "$t/grad.png" "$t/mask-cut.png" -alpha off -compose CopyOpacity -composite "$out/logo.png"
 
-# --- glow sprite (pink, two blur radii); the script pulses its opacity
-P=60
-png "$t/mask.png" -bordercolor black -border $P -background "$PINK" -alpha shape \
-  \( +clone -blur 0x20 -channel A -evaluate multiply 0.55 +channel \) \
-  \( -clone 0 -blur 0x5 -channel A -evaluate multiply 0.7 +channel \) \
+# --- glow sprite (cyan: wide soft haze, tight halo, crisp edge), padded 120; the script pulses
+# its opacity. Cyan, not pink, so it stands apart from the pink lower half of the logo.
+P=120
+png "$t/mask.png" -bordercolor black -border $P -background "$CYAN" -alpha shape \
+  \( +clone -blur 0x40 -channel A -evaluate multiply 0.6 +channel \) \
+  \( -clone 0 -blur 0x9 -channel A -evaluate multiply 0.95 +channel \) \
+  \( -clone 0 -blur 0x3 \) \
   -delete 0 -background none -compose over -flatten "$out/glow.png"
 
 # --- entry box: 286x48 outline + glow, padded 20 on every side (cyan normal, red error flash)

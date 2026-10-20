@@ -18,7 +18,7 @@ logo.sprite.SetPosition(logo.x, logo.y, 2);
 
 glow.image = Image("glow.png");
 glow.sprite = Sprite(glow.image);
-glow.sprite.SetPosition(logo.x - 60, logo.y - 60, 1);
+glow.sprite.SetPosition(logo.x - 120, logo.y - 120, 1);
 glow.sprite.SetOpacity(0);
 
 global.fade_start = -1;         # frame the shutdown/reboot fade-out began
