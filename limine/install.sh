@@ -1,5 +1,6 @@
 #!/bin/bash
 # Restyle the Limine boot menu: OLED black, synthwave palette, a 2 s menu.
+# Run as your user; it asks for sudo.
 #
 #   ./install.sh                 apply the style to the global header of limine.conf
 #   ./install.sh --uninstall     put the original header back
