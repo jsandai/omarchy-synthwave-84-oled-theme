@@ -35,9 +35,9 @@ png "$t/grad.png" "$t/mask-cut.png" -alpha off -compose CopyOpacity -composite "
 # its opacity. Cyan, not pink, so it stands apart from the pink lower half of the logo.
 P=120
 png "$t/mask.png" -bordercolor black -border $P -background "$CYAN" -alpha shape \
-  \( +clone -blur 0x40 -channel A -evaluate multiply 0.6 +channel \) \
-  \( -clone 0 -blur 0x9 -channel A -evaluate multiply 0.95 +channel \) \
-  \( -clone 0 -blur 0x3 \) \
+  \( +clone -blur 0x40 -channel A -evaluate multiply 0.45 +channel \) \
+  \( -clone 0 -blur 0x9 -channel A -evaluate multiply 0.75 +channel \) \
+  \( -clone 0 -blur 0x3 -channel A -evaluate multiply 0.85 +channel \) \
   -delete 0 -background none -compose over -flatten "$out/glow.png"
 
 # --- entry box: 286x48 outline + glow, padded 20 on every side (cyan normal, red error flash)
