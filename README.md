@@ -4,7 +4,7 @@ An Omarchy theme: Synthwave '84 colours on an OLED-black base, with a neon-sunri
 background, pink-to-cyan window borders, an optional neon glow for windows and Ghostty,
 and an optional animated boot and unlock splash.
 
-![Animated splash: the logo's pink glow pulses](screenshots/splash-glow-pulse.gif)
+![Animated splash: the logo's cyan glow pulses](screenshots/splash-glow-pulse.gif)
 
 ## Install
 
@@ -45,7 +45,7 @@ on black.
 The full version is an animated Plymouth theme of its own, covering boot, the disk
 unlock prompt, shutdown and reboot:
 
-- the logo in a yellow-to-pink sunset gradient with a pulsing pink glow
+- the logo in a yellow-to-pink sunset gradient with a pulsing cyan glow
 - a cyan password box with square bullets that flash white as you type, a block caret,
   and a red flash and shake on a wrong passphrase
 - a pink-to-cyan progress bar after unlock, and the glow fading out on shutdown
@@ -70,6 +70,25 @@ cd ~/.config/omarchy/themes/synthwave-84-oled/plymouth
 It installs to `/usr/share/plymouth/themes/synthwave-oled`, which no package owns, so
 system updates leave it in place. Omarchy's own splash is not modified. Needs
 `imagemagick` and `librsvg` to build the images.
+
+## Boot menu
+
+An optional Limine restyle to match: OLED black, a pink title and entries, cyan key
+hints and a yellow countdown. The menu shows for 2 seconds, then boots the default entry.
+
+![Limine boot menu in the synthwave palette](screenshots/limine-menu.png)
+
+```bash
+cd ~/.config/omarchy/themes/synthwave-84-oled/limine
+./install.sh               # restyle the menu (asks for sudo)
+./install.sh --uninstall   # put the original settings back
+```
+
+Only the settings at the top of `limine.conf` change; the boot entries, which
+`limine-entry-tool` and `limine-snapper-sync` regenerate, are left alone. The original
+settings are saved next to the file and a full backup is made on every install. Quiet
+mode is deliberately off: a quiet Limine draws nothing, so the firmware's logo stays on
+screen and shows again after the disk unlock.
 
 ## pi
 

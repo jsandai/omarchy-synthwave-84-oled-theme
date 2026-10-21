@@ -3,12 +3,12 @@
 # shutdown, and a pulse GIF of the logo glow.
 set -u
 out=$1; mkdir -p "$out"/raw
-export DISPLAY=:99
-[[ -S /tmp/.X11-unix/X99 ]] || { Xvfb :99 -screen 0 1920x1080x24 >/dev/null 2>&1 & sleep 1; }
+export DISPLAY=${XVFB_DISPLAY:-:99}  # any free display; it must be 1920x1080
+[[ -S /tmp/.X11-unix/X${DISPLAY#:} ]] || { Xvfb $DISPLAY -screen 0 1920x1080x24 >/dev/null 2>&1 & sleep 1; }
 conf=$(dirname "$(readlink -f "$0")")/plymouthd.conf
 start() {
   sudo plymouth quit 2>/dev/null; sleep 0.5
-  sudo env DISPLAY=:99 unshare -m sh -c "mount --bind $conf /etc/plymouth/plymouthd.conf && \
+  sudo env DISPLAY=$DISPLAY unshare -m sh -c "mount --bind $conf /etc/plymouth/plymouthd.conf && \
     exec script -qfc 'plymouthd --no-daemon --mode=$1 \
     --kernel-command-line=\"quiet splash plymouth.force-renderer=x11\" --graphical-boot --tty=\$(tty)' /dev/null" </dev/null >/dev/null 2>&1 &
   sleep 1.5; sudo plymouth show-splash; sleep 0.5
